@@ -193,6 +193,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\convertchinesegbdlg.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\idCardIdentification.cpp"
 				>
 			</File>
@@ -202,6 +206,10 @@
 			</File>
 			<File
 				RelativePath=".\myfunction.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\pinyindlg.cpp"
 				>
 			</File>
 			<File
@@ -234,11 +242,19 @@
 				>
 			</File>
 			<File
+				RelativePath=".\convertchinesegbdlg.h"
+				>
+			</File>
+			<File
 				RelativePath=".\MainDlg.h"
 				>
 			</File>
 			<File
 				RelativePath=".\myfunction.h"
+				>
+			</File>
+			<File
+				RelativePath=".\pinyindlg.h"
 				>
 			</File>
 			<File

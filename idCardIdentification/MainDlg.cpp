@@ -7,6 +7,8 @@
 
 #include "aboutdlg.h"
 #include "MainDlg.h"
+#include "pinyindlg.h"
+#include "convertchinesegbdlg.h"
 
 BOOL CMainDlg::PreTranslateMessage(MSG* pMsg)
 {
@@ -80,6 +82,19 @@ LRESULT CMainDlg::OnOK(WORD /*wNotifyCode*/, WORD wID, HWND /*hWndCtl*/, BOOL& /
 	// TODO: Add validation code 
 	Clear();
 
+	/************************************************************************/
+	/* 转化区位码 孙 4379 来 3220 兵 1788                                                                      */
+	/************************************************************************/
+	CString name = L"孙来兵";
+	GetSpell(name);
+	char *name2 = "孙";
+// 	GetGBFromCString(L"孙来嗄");
+// 	GetStringFromGB(L"437932201788");
+
+	CString name3 = L"我是谁";
+	CString py ;
+//	GetChineseSpell(name3, py);
+
 	DoDataExchange(TRUE);
 	if (m_editIdcard.GetLength() != 18)
 	{
@@ -135,4 +150,24 @@ void CMainDlg::CloseDialog(int nVal)
 {
 	DestroyWindow();
 	::PostQuitMessage(nVal);
+}
+
+LRESULT CMainDlg::OnBnClickedAppPysx(WORD /*wNotifyCode*/, WORD /*wID*/, HWND /*hWndCtl*/, BOOL& /*bHandled*/)
+{
+	// TODO: 在此添加控件通知处理程序代码
+
+	CPinyinDlg dlg;
+
+	dlg.DoModal();
+
+	return 0;
+}
+
+LRESULT CMainDlg::OnBnClickedAppConvert(WORD /*wNotifyCode*/, WORD /*wID*/, HWND /*hWndCtl*/, BOOL& /*bHandled*/)
+{
+	// TODO: 在此添加控件通知处理程序代码
+	CConvertGBDlg dlg;
+	dlg.DoModal();
+
+	return 0;
 }

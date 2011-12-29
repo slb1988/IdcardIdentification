@@ -26,6 +26,8 @@ public:
 		COMMAND_ID_HANDLER(ID_APP_ABOUT, OnAppAbout)
 		COMMAND_ID_HANDLER(IDOK, OnOK)
 		COMMAND_ID_HANDLER(IDCANCEL, OnCancel)
+		COMMAND_HANDLER(ID_APP_PYSX, BN_CLICKED, OnBnClickedAppPysx)
+		COMMAND_HANDLER(ID_APP_CONVERT, BN_CLICKED, OnBnClickedAppConvert)
 	END_MSG_MAP()
 
 	BEGIN_DDX_MAP(CMainDlg)
@@ -41,6 +43,7 @@ public:
 	ATL::CString m_birthDate;
 	ATL::CString m_address;
 	ATL::CString m_idcard;
+
 
 	LRunSql m_runsql;
 	ATL::CString sql;
@@ -92,6 +95,28 @@ public:
 // 			return hash_map[sigma % 11];
 	}
 
+	//»ñµÃºº×Ö×Ö·û´®µÄÆ´Òô
+	CString GetSpell(CString str)
+	{
+		CString strResult;
+//		int high, low ;
+
+		int length = str.GetLength();
+
+		CString ssss;
+
+// 		for (int i = 0; i < length; ++i)
+// 		{
+// 			CString temp = str.GetAt(i);
+// 			
+// 			high = atoi(str.GetAt(i)) && 1111111100000000 + 160;
+// 			low = atoi(str.GetAt(i)) && 11111111 + 160;
+// 			ssss.Format(L"%d%d", high, low);
+// 		}
+
+		return strResult;
+	}
+
 	void Clear()
 	{
 		GetDlgItem(IDC_SEX).SetWindowText(L"");
@@ -102,4 +127,6 @@ public:
 	}
 
 	void CloseDialog(int nVal);
+	LRESULT OnBnClickedAppPysx(WORD /*wNotifyCode*/, WORD /*wID*/, HWND /*hWndCtl*/, BOOL& /*bHandled*/);
+	LRESULT OnBnClickedAppConvert(WORD /*wNotifyCode*/, WORD /*wID*/, HWND /*hWndCtl*/, BOOL& /*bHandled*/);
 };
