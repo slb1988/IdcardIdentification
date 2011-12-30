@@ -311,6 +311,7 @@ public:
 
 	//»ñÈ¡ºº×ÖÆ´ÒôÊ××ÖÄ¸
 	LRESULT GetChineseSpell(CString strText, CString& strPY);
+	LRESULT GetChineseSpell2(CString strText, CString& strPY);
 
 
 	LRESULT OnClickOk(WORD /*wNotifyCode*/, WORD wID, HWND /*hWndCtl*/, BOOL& /*bHandled*/);
