@@ -95,6 +95,37 @@ public:
 // 			return hash_map[sigma % 11];
 	}
 
+	bool iso7064_15To18(CString vSrc, CString& vDst)
+	{
+		vDst = vSrc.Mid(0, 6);
+		vDst += L"19";
+		vDst += vSrc.Right(9);
+		vDst += L"?";
+
+		long result = 0;
+		int wi[] = {1, 2, 4, 8, 5, 10, 9, 7, 3, 6 };
+		char hash_map[] = {'1', '0', 'X', '9', '8', '7', '6', '5', '4', '3', '2'};
+		bool bModify = L"?" == vDst.Right(1);
+
+		int sigma, i1, w1;
+		sigma = i1 = w1 = 0;
+		for (int i = 1; i < 18; ++i)
+		{
+			i1 = (vDst.GetAt(i-1)-48)*1;
+			w1 = wi[(18-i)%10];
+			sigma += (i1 * w1) % 11;
+		}
+
+		if (bModify)
+		{
+			//设置的临时变量，无用！
+			vDst.SetAt(17, hash_map[sigma % 11]);
+			return 0;
+		}
+		else
+			return 1;
+	}
+
 	//获得汉字字符串的拼音
 	CString GetSpell(CString str)
 	{
