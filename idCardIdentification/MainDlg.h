@@ -97,10 +97,15 @@ public:
 
 	bool iso7064_15To18(CString vSrc, CString& vDst)
 	{
-		vDst = vSrc.Mid(0, 6);
-		vDst += L"19";
-		vDst += vSrc.Right(9);
-		vDst += L"?";
+		if (vSrc.GetLength() == 15)
+		{
+			vDst = vSrc.Mid(0, 6);
+			vDst += L"19";
+			vDst += vSrc.Right(9);
+			vDst += L"?";
+		}
+		else 
+			vDst = vSrc;
 
 		long result = 0;
 		int wi[] = {1, 2, 4, 8, 5, 10, 9, 7, 3, 6 };
@@ -123,29 +128,7 @@ public:
 			return 0;
 		}
 		else
-			return 1;
-	}
-
-	//»ñµÃºº×Ö×Ö·û´®µÄÆ´Òô
-	CString GetSpell(CString str)
-	{
-		CString strResult;
-//		int high, low ;
-
-		int length = str.GetLength();
-
-		CString ssss;
-
-// 		for (int i = 0; i < length; ++i)
-// 		{
-// 			CString temp = str.GetAt(i);
-// 			
-// 			high = atoi(str.GetAt(i)) && 1111111100000000 + 160;
-// 			low = atoi(str.GetAt(i)) && 11111111 + 160;
-// 			ssss.Format(L"%d%d", high, low);
-// 		}
-
-		return strResult;
+			return vDst.Right(1) == hash_map[sigma % 11];
 	}
 
 	void Clear()

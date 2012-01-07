@@ -85,7 +85,7 @@ LRESULT CMainDlg::OnOK(WORD /*wNotifyCode*/, WORD wID, HWND /*hWndCtl*/, BOOL& /
 	DoDataExchange(TRUE);
 	if (m_editIdcard.GetLength() == 18 )
 	{
-		if ( iso7064(m_editIdcard) == false)
+		if ( iso7064_15To18(m_editIdcard, m_idcard) == false)
 		{
 			GetDlgItem(IDC_STATIC_INFO).SetWindowText(L"不是有效的身份证号码！");
 			return 1;
@@ -109,8 +109,6 @@ LRESULT CMainDlg::OnOK(WORD /*wNotifyCode*/, WORD wID, HWND /*hWndCtl*/, BOOL& /
 			m_address.Format(L"%s %s", (LPCTSTR)(_bstr_t)m_runsql.m_recordset->GetCollect("state"),
 				(LPCTSTR)(_bstr_t)m_runsql.m_recordset->GetCollect("city"));
 		}
-
-		m_idcard = m_editIdcard;
 	}
 	else if ( m_editIdcard.GetLength() == 15)
 	{   
